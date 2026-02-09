@@ -17,11 +17,11 @@ setup(
     description="Universal research paper discovery system - works for ANY research domain",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/research-scanner",
+    url="https://github.com/Vincent1949/research-scanner",
     project_urls={
-        "Bug Tracker": "https://github.com/yourusername/research-scanner/issues",
-        "Documentation": "https://github.com/yourusername/research-scanner#readme",
-        "Source Code": "https://github.com/yourusername/research-scanner",
+        "Bug Tracker": "https://github.com/Vincent1949/research-scanner/issues",
+        "Documentation": "https://github.com/Vincent1949/research-scanner#readme",
+        "Source Code": "https://github.com/Vincent1949/research-scanner",
     },
     packages=find_packages(exclude=["tests*", "docs*"]),
     classifiers=[
