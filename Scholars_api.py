@@ -362,9 +362,75 @@ app.include_router(create_review_router(), prefix="/api/review", tags=["review"]
 
 
 # ============================================================
+# Port Management - Find Available Port
+# ============================================================
+
+def find_available_port(start_port: int = 8000, max_attempts: int = 10) -> int:
+    """Find an available port starting from start_port"""
+    import socket
+    
+    for port in range(start_port, start_port + max_attempts):
+        try:
+            # Try to bind to the port
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.bind(('0.0.0.0', port))
+                return port
+        except OSError:
+            # Port is in use, try next one
+            continue
+    
+    # No available port found
+    raise RuntimeError(f"No available ports found in range {start_port}-{start_port + max_attempts - 1}")
+
+
+# ============================================================
 # Main Entry Point
 # ============================================================
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import argparse
+    
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="Scholar's Terminal API Server")
+    parser.add_argument("--port", type=int, default=None, help="Port to run on (default: auto-detect starting from 8000)")
+    parser.add_argument("--host", type=str, default="0.0.0.0", help="Host to bind to (default: 0.0.0.0)")
+    args = parser.parse_args()
+    
+    # Determine port
+    if args.port:
+        # User specified a port
+        port = args.port
+        print(f"\n[PORT] Using user-specified port: {port}", flush=True)
+    else:
+        # Auto-detect available port
+        try:
+            port = find_available_port(start_port=8000, max_attempts=10)
+            if port != 8000:
+                print(f"\n[WARNING] Port 8000 is in use", flush=True)
+                print(f"[OK] Found available port: {port}", flush=True)
+            else:
+                print(f"\n[OK] Using default port: {port}", flush=True)
+        except RuntimeError as e:
+            print(f"\n[ERROR] {e}", flush=True)
+            print("[TIP] Try specifying a custom port: python Scholars_api.py --port 8080", flush=True)
+            sys.exit(1)
+    
+    # Print startup info
+    print("\n" + "=" * 60, flush=True)
+    print("Scholar's Terminal API Starting...", flush=True)
+    print("=" * 60, flush=True)
+    print(f"Server: http://localhost:{port}", flush=True)
+    print(f"API Docs: http://localhost:{port}/docs", flush=True)
+    print(f"Health Check: http://localhost:{port}/health", flush=True)
+    print("=" * 60, flush=True)
+    print("\nPress Ctrl+C to stop the server\n", flush=True)
+    
+    try:
+        uvicorn.run(app, host=args.host, port=port)
+    except Exception as e:
+        print(f"\n[ERROR] Server failed to start: {e}")
+        print("[TIP] Common issues:")
+        print(f"      - Port {port} might still be in use")
+        print("      - Try: python Scholars_api.py --port 8080")
+        sys.exit(1)
