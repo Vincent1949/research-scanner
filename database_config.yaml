@@ -1,0 +1,127 @@
+# ============================================================
+# Scholar's Terminal - Database Builder Configuration
+# ============================================================
+#
+# This file controls what sources are indexed into your knowledge base.
+# Customize the paths below to match your personal library structure.
+#
+# ============================================================
+
+# ============================================================
+# YOUR DATA SOURCES
+# ============================================================
+# Add as many sources as you want. Each source can have:
+#   - name: Friendly name for this source
+#   - path: Full path to the directory
+#   - type: Type of content (books, code, research, documents)
+#   - enabled: true/false to include/exclude
+#   - extensions: File types to process
+# ============================================================
+
+sources:
+  
+  # Example 1: Books Collection
+  - name: "Personal Library"
+    path: "D:/Books"
+    type: "books"
+    enabled: true
+    extensions:
+      - .pdf
+      - .txt
+      - .md
+    description: "Main book collection with technical references"
+  
+  # Example 2: GitHub Repositories
+  - name: "GitHub Projects"
+    path: "D:/GitHub"
+    type: "code"
+    enabled: false  # Disabled by default - enable if you want code search
+    extensions:
+      - .py
+      - .js
+      - .ts
+      - .md
+      - .txt
+    description: "Source code and documentation from repositories"
+  
+  # Example 3: Research Papers
+  - name: "Research Archive"
+    path: "D:/Research"
+    type: "research"
+    enabled: false  # Enable if you have a research folder
+    extensions:
+      - .pdf
+      - .txt
+      - .md
+    description: "Academic papers and research documents"
+  
+  # Example 4: Personal Documents
+  - name: "Personal Documents"
+    path: "C:/Users/Marcus/Documents"
+    type: "documents"
+    enabled: false  # Enable for personal document search
+    extensions:
+      - .txt
+      - .md
+      - .pdf
+    description: "Personal notes and documents"
+
+# ============================================================
+# ADVANCED SETTINGS
+# ============================================================
+
+# Database Location
+database:
+  path: "./data/vector_db"  # Relative to project root
+  collection_name: "knowledge_base"
+
+# Processing Settings
+processing:
+  chunk_size: 1000          # Characters per chunk (1000 = ~200 words)
+  chunk_overlap: 200        # Overlap between chunks (maintains context)
+  min_chunk_size: 100       # Skip chunks smaller than this (filters noise)
+  max_chunks_per_file: 5000 # Limit per file (5000 = ~1000 pages, handles large books)
+  batch_size: 100           # Documents per batch (increased for better performance)
+
+# File Size Limits
+limits:
+  max_file_size_mb: 400     # Skip files larger than this (handles illustrated reference books)
+  warn_file_size_mb: 100    # Show warning for large files (image-heavy PDFs)
+
+# Directories to Exclude (applies to all sources)
+exclude_dirs:
+  # Development
+  - node_modules
+  - __pycache__
+  - .git
+  - .vscode
+  - venv
+  - env
+  
+  # Build artifacts
+  - dist
+  - build
+  - out
+  
+  # Tests
+  - tests
+  - test
+  - __tests__
+
+# Files to Exclude (applies to all sources)
+exclude_files:
+  - .gitignore
+  - .env
+  - package-lock.json
+  - "*.log"
+
+# Embedding Model (requires Ollama)
+embedding:
+  model: "nomic-embed-text:latest"
+  ollama_url: "http://localhost:11434"
+
+# Progress Tracking
+progress:
+  save_every: 100           # Save progress every N files
+  log_file: "database_build.log"
+  resume_enabled: true      # Allow resuming interrupted builds
