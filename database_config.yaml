@@ -22,7 +22,7 @@ sources:
   
   # Example 1: Books Collection
   - name: "Personal Library"
-    path: "D:/Books"
+    path: "C:/Users/YourName/Books"  # Example path - change to your library location
     type: "books"
     enabled: true
     extensions:
@@ -33,7 +33,7 @@ sources:
   
   # Example 2: GitHub Repositories
   - name: "GitHub Projects"
-    path: "D:/GitHub"
+    path: "D:/GitHub"  # Example path - change to your GitHub Files clone location
     type: "code"
     enabled: false  # Disabled by default - enable if you want code search
     extensions:
@@ -46,7 +46,7 @@ sources:
   
   # Example 3: Research Papers
   - name: "Research Archive"
-    path: "D:/Research"
+    path: "D:/Research"  # Example path - change to your Research Papers downlaod files location
     type: "research"
     enabled: false  # Enable if you have a research folder
     extensions:

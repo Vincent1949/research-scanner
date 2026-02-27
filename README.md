@@ -47,7 +47,7 @@ A universal, AI-powered research paper discovery system that automatically finds
 ### 1. Installation
 
 ```bash
-git clone https://github.com/Vincent1949/research-scanner.git
+git clone https://github.com/yourusername/research-scanner.git
 cd research-scanner
 pip install -r requirements.txt
 ```
@@ -301,7 +301,7 @@ We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 🙏 Acknowledgments
 
-Built as part of [Scholar's Terminal](https://github.com/Vincent1949/scholars-terminal) - an AI-powered knowledge management system.
+Built as part of [Scholar's Terminal](https://github.com/yourusername/scholars-terminal) - an AI-powered knowledge management system.
 
 **Paper Sources:**
 - [arXiv](https://arxiv.org/) - Open access preprints
@@ -323,9 +323,9 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## 💬 Support
 
-- 🐛 [Report bugs](https://github.com/Vincent1949/research-scanner/issues)
-- 💡 [Request features](https://github.com/Vincent1949/research-scanner/issues)
-- 💬 [Discussions](https://github.com/Vincent1949/research-scanner/discussions)
+- 🐛 [Report bugs](https://github.com/yourusername/research-scanner/issues)
+- 💡 [Request features](https://github.com/yourusername/research-scanner/issues)
+- 💬 [Discussions](https://github.com/yourusername/research-scanner/discussions)
 
 ---
 

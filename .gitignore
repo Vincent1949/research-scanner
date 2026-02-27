@@ -1,146 +1,60 @@
+# User data
+data/
+*.sqlite3
+*.db
+*.log
+logs/
+database_build_progress.json
+reindex_progress.json
+
+# Secrets
+.env
+GitHub Token.txt
+PK-PRO-*.txt
+
+# Personal files
+*_VINCENT.md
+VINCENT_*.md
+README_VINCENT.md
+*_REPORT.md
+*_STATUS.md
+*_COMPLETE.md
+AUTONOMOUS_*.md
+COFFEE_*.md
+SESSION_*.md
+WORKAROUND.md
+WELCOME_*.md
+
+# Old system
+reindex_with_metadata.py*
+reindex_config.py
+unified_knowledge_chatbot*.py
+
+# Development files
+test_*.py
+check_*.py
+verify_*.py
+diagnose_*.py
+count_*.py
+clean_*.py
+fix_*.py
+quick_test.py
+
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual environments
+*.pyc
 venv/
-ENV/
 env/
-.venv
+
+# Node
+node_modules/
+frontend/dist/
+frontend/build/
 
 # IDEs
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-
-# Project specific
-data/
-*.db
-*.sqlite
-*.log
-.env
-
-# ChromaDB
-chroma_db/
-vector_db/
-
-# Paper cache
-paper_cache/
-
-# Scan history
-scan_history.json
 
 # OS
 .DS_Store
 Thumbs.db
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
-
-# Documentation builds
-docs/_build/
-
-# Temp files
-*.tmp
-*.bak
-
-# Personal/development files (NOT for GitHub)
-backend/
-frontend/
-unified_knowledge_chatbot*.py
-reindex*.py
-reindex*.json
-knowledge_chatbot*.py
-file_watcher.py
-database_initializer.py
-locale_filter.py
-check_*.py
-count_*.py
-clean_*.py
-system_check.py
-verify_*.py
-process_missing_files.py
-fix_*.py
-quick_test.py
-review_papers.py
-run_reindex.py
-start_chatbot.py
-
-# Internal documentation (NOT for GitHub) 
-docs/*.docx
-docs/*.txt
-docs/~$*.docx
-research_scanner/*.docx
-research_scanner/~$*.docx
-*_BACKUP_*.py
-*.old
-*.backup
-
-# Internal status files (NOT for GitHub)
-*_REPORT.md
-*_STATUS.md
-*_COMPLETE.md
-*_SUMMARY.md
-*_GUIDE.md
-AUTONOMOUS_*.md
-COFFEE_*.md
-CHECKLIST.md
-DUAL_*.md
-GITHUB_DEPLOYMENT.md
-INTEGRATION_*.md
-LOCALE_*.md
-MIGRATION_*.md
-PHASE*.md
-QUICK_*.md
-README_VINCENT.md
-SESSION_*.md
-VINCENT_*.md
-WELCOME_*.md
-RESEARCH_SCANNER_*.md
-REVIEW_*.md
-MANIFEST.in
-ADDING_*.md
-SITUATION_*.md
-
-# Batch files for local development only
-*.bat
-*.ps1
-*.sh
-!examples/*.sh
-
-# Test scripts specific to development
-test_*.py
-!research_scanner/tests/test_*.py
-setup_*_template.py
-
-# User config (local only)
-research_scanner/templates/user_config.yaml
-
-# Logs
-logs/
